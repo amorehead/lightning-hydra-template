@@ -1,3 +1,4 @@
+import os
 from typing import Any, Dict, List, Tuple
 
 import hydra
@@ -130,6 +131,8 @@ def main(cfg: DictConfig) -> None:
 
     :param cfg: DictConfig configuration composed by Hydra.
     """
+    os.makedirs(cfg.paths.output_dir, exist_ok=True)
+
     # apply extra utilities
     # (e.g. ask for tags if none are provided in cfg, print cfg tree, etc.)
     extras(cfg)
